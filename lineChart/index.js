@@ -22,6 +22,10 @@ svg.append("g")
 svg.append("g")
     .call(d3.axisLeft(scaleY));
 
+var makeLine = d3.line()
+    .x(function(d){ scaleX(d.age)})
+    .y(function(d){ scaleX(d.total)});
+
 
 
 //import the data from the .csv file
@@ -59,5 +63,6 @@ d3.csv('./incomeData.csv', function(dataIn){
 
 });
 
+svg.append('path')
 
 
