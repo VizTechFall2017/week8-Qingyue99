@@ -15,8 +15,10 @@ h1{
 }
 
 #sliderContainer {
+    font: small-caps 300 1em/0.5em 'Open Sans',
+    sans-serif;
     text-align: center;
     position: relative;
-    top: 15px;
+    top: -105px;
 }
 

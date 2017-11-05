@@ -10,6 +10,12 @@ var svg = d3.select('svg')
     .attr("class", "graph-svg-component");
 
 
+var inputValue = null;
+var distance = ["Within half Miles","Within One Miles","Within Two Miles","Within Three Miles"];
+
+
+
+
 var albersProjection = d3.geoAlbers()
     .scale(185000 )
     .rotate([71.057,0])
@@ -84,7 +90,7 @@ d3.json('./neighborhood_boston.json', function(dataIn){
         })
         .attr('r', 5)
 
-        .attr('fill', 'purple')
+        .attr('fill', '#007245')
         //.attr('data-toggle','tooltip')
         //.attr('title', function (d) {return d.women});;
 
