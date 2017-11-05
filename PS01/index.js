@@ -6,7 +6,8 @@ var marginTop = 10;
 
 var svg = d3.select('svg')
     .append('g')
-    .attr('transform', 'translate(' + marginLeft + ',' + marginTop + ')');
+    .attr('transform', 'translate(' + marginLeft + ',' + marginTop + ')')
+    .attr("class", "graph-svg-component");
 
 
 var albersProjection = d3.geoAlbers()
@@ -19,6 +20,38 @@ var albersProjection = d3.geoAlbers()
 var path = d3.geoPath()
     .projection(albersProjection);
 
+var zoomSettings = {
+    duration: 1000,
+    ease: d3.easeCubicOut,
+    zoomLevel: 5
+};
+
+function clicked(d){
+    var x;
+    var y;
+    var zoomLevel;
+
+    if (d && centered !== d) {
+        var centroid = path.centroid(d)
+        x = centroid[0];
+        y = centroid[1];
+        zoomLevel = zoomSettings.zoomLevel;
+        centered = d;
+    } else{
+        x = width /2;
+        y = height/2;
+        zoomLevel = 1;
+        centered = null;
+
+    }
+
+    g.transition()
+        .duration (zoomSettings.duration)
+        .ease(zoomSettings.ease)
+        .attr('transform', 'translate(' + marginLeft + ',' + marginTop + ')');
+
+}
+
 //import the data from the .csv file
 d3.json('./neighborhood_boston.json', function(dataIn){
     //console.log(dataIn);
@@ -27,12 +60,16 @@ d3.json('./neighborhood_boston.json', function(dataIn){
         .enter()
         .append('path')
         .attr('d', path)
-        .attr('fill', 'gainsboro')
+        .attr('fill', '#007245')
+        .attr('opacity', 0.6)
         .attr('stroke', 'white')
         .attr('stroke-width', 1)
+        .attr('cursor','pointer')
         .on('mouseover', function(d){
             console.log(d.properties.NAME);
         });
+
+
 
     svg.selectAll('circle')
         .data(Arraylist)
@@ -50,21 +87,6 @@ d3.json('./neighborhood_boston.json', function(dataIn){
         .attr('fill', 'purple')
         //.attr('data-toggle','tooltip')
         //.attr('title', function (d) {return d.women});;
-
-    var svg2 = d3.select('svg')
-        .append('rect')
-        .attr('class', 'textBox')
-        .attr('x', width - 200)
-        .attr('y', height/2 - 200)
-        .attr('width', 200)
-        .attr('height', 100)
-        .attr('stroke', 'black')
-        .attr('stroke-width', 1)
-        .attr('fill', 'none')
-        .attr('opacity', 1);
-
-
-
 
 
 });
