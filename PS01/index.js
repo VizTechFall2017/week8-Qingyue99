@@ -98,7 +98,7 @@ d3.json('./neighborhood_boston.json', function(dataIn){
         .attr('stroke-width', 1)
         .attr('cursor','pointer')
         .on('mouseover', function(d){
-            console.log(d.properties.NAME);
+            //console.log(d.properties.NAME);
         })
         .on("click", clicked);
 
@@ -118,12 +118,15 @@ d3.json('./neighborhood_boston.json', function(dataIn){
         .attr('r',3.5)
         .attr('fill', '#007245')
         .on('mouseover', function(d){
-            d3.select("h2").text(d.Name);
+            console.log(d.Name, d.Time);
+            d3.select("h2").text(d.Name );
             d3.select(this).attr("class","incident hover");
             d3.select(this).attr("fill","#000000");
-            //d3.select("h2").text(d.Time);
-            //d3.select(this).attr("class","incident hover");
-            //d3.select(this).attr("fill","#000000");
+
+            d3.select("h3").text(d.Time);
+
+            d3.select(this).attr("class","incident hover");
+            d3.select(this).attr("fill","#000000");
 
 
         })
