@@ -12,14 +12,9 @@ var g = svg.append('g')
     .attr('transform', 'translate(' + marginLeft + ',' + marginTop + ')')
     .on("click", clicked);
 
-var inputValue = null;
-var distance = ["Within half Miles","Within One Miles","Within Two Miles","Within Three Miles"];
-
-
-
 
 var albersProjection = d3.geoAlbers()
-    .scale(185000 )
+    .scale(215000 )
     .rotate([71.057,0])
     .center([0, 42.313])
     .translate([(width/2), (height/2)]);
@@ -140,10 +135,10 @@ d3.json('./neighborhood_boston.json', function(dataIn){
 
 
 Arraylist= [
-    {long:-71.090177, lat:42.340324, Name:"Marino Recreation Center", Time:"Monday 5AM-1AM" },
+    {long:-71.090177, lat:42.340324, Name:"Marino Recreation Center", Time:"Monday 5AM-1AM"},
     {long:-71.086143, lat:42.337929, Name:"SquashBusters Badger and Rosen Center",Time:"Monday 6AM-9:15PM"},
-    {long:-71.080779, lat:42.341815, Name:"BURN Fitness Studios",Time:"6AM-9PM" },
-    {long:-71.103409, lat:42.338627, Name:"BodyScapes",Time:"8:30AM–10PM" },
+    {long:-71.080779, lat:42.341815, Name:"BURN Fitness Studios",Time:"Monday 6AM-9PM"},
+    {long:-71.103409, lat:42.338627, Name:"BodyScapes",Time:"Monday 8:30AM–10PM"},
     {long:-71.086143, lat:42.337929, Name:"Brain Fit Club",Time:"Monday 8:30AM-5PM"},
     {long:-71.082911, lat:42.346315, Name:"Flywheel Sports",Time:"Monday 6AM-7:30PM"},
     {long:-71.081266, lat:42.346863, Name:"Boston Sports Clubs",Time:"Monday 5:30AM-10:30PM"}
