@@ -11,7 +11,7 @@ h1{
 
 
 .graph-svg-component {
-    background-color: AliceBlue;
+    background-color: rgba(80, 66, 244, 0.8);
 }
 
 #sliderContainer {
@@ -22,3 +22,7 @@ h1{
     top: -105px;
 }
 
+h2{
+    font: small-caps 300 2em/1.5em 'Open Sans',
+    sans-serif; text-align: center;margin: 20px auto 0;padding: 0;
+}
