@@ -121,6 +121,11 @@ d3.json('./neighborhood_boston.json', function(dataIn){
             d3.select("h2").text(d.Name);
             d3.select(this).attr("class","incident hover");
             d3.select(this).attr("fill","#000000");
+            //d3.select("h2").text(d.Time);
+            //d3.select(this).attr("class","incident hover");
+            //d3.select(this).attr("fill","#000000");
+
+
         })
         .on("mouseout", function(d){
        //     d3.select("h2").text("hhh");
@@ -132,10 +137,14 @@ d3.json('./neighborhood_boston.json', function(dataIn){
 
 
 Arraylist= [
-    {long:-71.090508, lat:42.340052, Name:"Gym1" },
-    {long:-71.086145, lat:42.338542, Name:"Gym2"},
-    {long:-71.081518, lat:42.341663, Name:"Gym3" },
-{long:-71.076440, lat:42.348695, Name:"Gym4" }
+    {long:-71.090177, lat:42.340324, Name:"Marino Recreation Center", Time:"Monday 5AM-1AM" },
+    {long:-71.086143, lat:42.337929, Name:"SquashBusters Badger and Rosen Center",Time:"Monday 6AM-9:15PM"},
+    {long:-71.080779, lat:42.341815, Name:"BURN Fitness Studios",Time:"6AM-9PM" },
+    {long:-71.103409, lat:42.338627, Name:"BodyScapes",Time:"8:30AM–10PM" },
+    {long:-71.086143, lat:42.337929, Name:"Brain Fit Club",Time:"Monday 8:30AM-5PM"},
+    {long:-71.082911, lat:42.346315, Name:"Flywheel Sports",Time:"Monday 6AM-7:30PM"},
+    {long:-71.081266, lat:42.346863, Name:"Boston Sports Clubs",Time:"Monday 5:30AM-10:30PM"}
 ];
 
 //$('[data-toggle="tooltip"]').tooltip();
+
